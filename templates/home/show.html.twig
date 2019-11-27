@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s6">
+                <h3>Personal ID : {{ person.id }}</h3>
+                <h5>Vorname: {{ person.firstName }}</h5>
+                <h5>Nachname: {{ person.lastName }}</h5>
+                <h5>Adresse: {{ person.adress }}</h5>
+                {% if person.image.name is defined %}
+                    <img src="{{ asset('images/') ~ person.image.name }}">
+                {% else %}
+                    <p>Kein Bild für {{ person.firstName }} {{ person.lastName }}</p>
+                {% endif %}
+
+                <a href="{{ path('home') }}">Home</a>
+            </div>
+
+            <div class="col s6">
+                
+                {# AFFICHER LES VACANCES DE PERSON #}
+                <h3>Urlaub :</h3>
+                {% for vacation in person.vacations %}
+                <div>
+                    <p>
+                        <small> {{ vacation.startAt |date('d/m/Y') }} --> {{ vacation.finishAt |date('d/m/Y') }}</small> 
+                    </p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{{ form_start(formPerson, {'attr' : {'novalidate' : 'novalidate'}}) }}  {# enlever la validation HTML (attribut required) #}
+   {{ form_label(formPerson.firstName, 'Vorname :') }}
+   {{ form_widget(formPerson.firstName) }}
+   <span style="color: red"><strong>{{ form_errors(formPerson.firstName) }}</strong></span>   {# AFFICHER L'ERREUR #}
+
+   {{ form_label(formPerson.lastName, 'Nachname :') }}
+   {{ form_widget(formPerson.lastName) }}
+   <span style="color: red"><strong>{{ form_errors(formPerson.lastName) }}</strong></span>   {# AFFICHER L'ERREUR #}
+
+   {{ form_label(formPerson.adress, 'Adresse :') }}
+   {{ form_widget(formPerson.adress) }}
+   <span style="color: red"><strong>{{ form_errors(formPerson.adress) }}</strong></span>   {# AFFICHER L'ERREUR #}
+{{ form_row(formPerson.image)}}

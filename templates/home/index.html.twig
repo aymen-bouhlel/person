@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="section no-pad-bot orange lighten-5" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h1 class="header center  orange-text text-darken-3">Team</h1>
+            <div class="row center">
+                <h5 class="header col s12 light"></h5>
+                <a href="{{ path('add') }}" class="btn-large waves-effect waves-light orange darken-3">Neuer Mitarbeiter</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+        <!--   Icon Section   -->
+            <div class="row">
+                <div class="col m6 offset-m3">
+                    <ul>
+                        <h6>Die Mitarbeiter des Teams :</h6>
+                
+                        {% for person in persons %}
+                            <li>
+                                <h5 class="center_aline">
+                                    <a href="{{ path('show', {'id': person.id}) }}">{{ person.firstName | upper }} {{ person.lastName | upper }}</a>
+                                    <br></br>
+                                    <a href="{{ path("delete", {id : person.id}) }}" class="red lighten-1 waves-effect waves-light btn">Löschen</a>
+                                    <a href="{{ path("edit", {id : person.id}) }}" class="blue lighten-1 waves-effect waves-light btn">Ändern</a>
+                                </h5> 
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <br></br> 
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="section">
+
+    </div>
+{% endblock %}
