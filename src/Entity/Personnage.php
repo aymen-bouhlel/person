@@ -38,4 +38,14 @@ class Personnage
         ]);
     }
 
+    public static function getPersonnageNom($nom)
+    {
+        // CHERCHER UN PERSONNE DANS LE TABLEAU PERSONNAGES
+        foreach (self::$personnages as $perso) {
+           if (strtolower($perso->nom) === $nom) {
+            return $perso;
+           } 
+        }
+    }
+
 }
