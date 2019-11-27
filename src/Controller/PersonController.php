@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Personnage;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PersonController extends AbstractController
 {
@@ -20,43 +21,10 @@ class PersonController extends AbstractController
      */
     public function person()
     {
-        $p1= [
-            'nom' => 'Marc',
-            'age' => 25,
-            'sexe' => true,
-            'carac' => [
-                'force' => 3,
-                'agi' => 2,
-                'intel' => 3
-            ]
-        ];
-        $p2= [
-            'nom' => 'Milo',
-            'age' => 30,
-            'sexe' => true,
-            'carac' => [
-                'force' => 5,
-                'agi' => 1,
-                'intel' => 2
-            ]
-        ];
-        $p3= [
-            'nom' => 'Tya',
-            'age' => 22,
-            'sexe' => false,
-            'carac' => [
-                'force' => 1,
-                'agi' => 2,
-                'intel' => 5
-            ]
-        ];
-        $players = [
-            'p1' => $p1,
-            'p2' => $p2,
-            'p3' => $p3
-        ];
+        Personnage::creerPersonnages();
+       
         return $this->render('person/persos.html.twig', [
-            'players' => $players
+            'players' => Personnage::$personnages
         ]);
     }
 }
