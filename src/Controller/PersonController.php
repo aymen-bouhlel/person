@@ -16,7 +16,7 @@ class PersonController extends AbstractController
     }
 
     /**
-     * @Route("/persos", name="persos")
+     * @Route("/persos", name="personnages")
      */
     public function person()
     {
